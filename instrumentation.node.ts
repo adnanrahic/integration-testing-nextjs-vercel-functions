@@ -6,7 +6,10 @@ import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentation
 import { FetchInstrumentation } from '@opentelemetry/instrumentation-fetch'
 
 const sdk = new NodeSDK({
-  // OTEL_EXPORTER_OTLP_TRACES_ENDPOINT is passed into "new OTLPTraceExporter" automatically
+  // The OTEL_EXPORTER_OTLP_ENDPOINT env var is passed into "new OTLPTraceExporter" automatically.
+  // If the OTEL_EXPORTER_OTLP_ENDPOINT env var is not set the "new OTLPTraceExporter" will
+  // default to use "http://localhost:4317" for gRPC and "http://localhost:4318" for HTTP.
+  // This sample is using HTTP.
   traceExporter: new OTLPTraceExporter(),
   instrumentations: [
     getNodeAutoInstrumentations(),
