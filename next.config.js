@@ -4,6 +4,7 @@ const nextConfig = {
     instrumentationHook: true,
   },
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts', 'node.ts'],
+  output: 'standalone',
 }
 
 module.exports = nextConfig
